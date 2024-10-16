@@ -6,7 +6,8 @@
      list(APPEND INCLUDE_PATHS
 -      /usr/local/include/ffmpeg
 +      /usr/local/ffmpeg3/include
-       /usr/local/include/lib${LIBNAME}
+-      /usr/local/include/lib${LIBNAME}
++      /usr/local/ffmpeg3/include/lib${LIBNAME}
        /usr/include/ffmpeg
        /usr/include/lib${LIBNAME}
 @@ -88,7 +88,7 @@ function(find_ffmpeg LIBNAME)
