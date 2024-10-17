@@ -22,7 +22,7 @@ NOT_FOR_ARCHS_REASON=	only little-endian is supported, see \
 LIB_DEPENDS=	libzip.so:archivers/libzip \
 		libsnappy.so:archivers/snappy \
 		libzstd.so:archivers/zstd \
-		libavcodec.so.57:multimedia/ffmpeg4 \
+		libavcodec.so.57:multimedia/ffmpeg3 \
 		libminiupnpc.so:net/miniupnpc
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
