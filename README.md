@@ -50,12 +50,12 @@ It can be built directly from source utilizing the command `make install clean` 
 
 Note: although I patched cmake/Modules/FindFFmpeg.cmake to look for ffmpeg3-3.0.2 in my custom install directory, in a "dirty" build environment (Ports tree, portmaster, portupgrade), if the standard version of multimedia/ffmpeg (currently 6.1.2_4,1) is installed, configure will detect it and link against it during the PPSSPP build process. This defeats the purpose of this custom port. A quick-and-dirty workaround is:
 
-sudo pkg create ffmpeg
-sudo pkg delete -f ffmpeg
+	sudo pkg create ffmpeg
+	sudo pkg delete -f ffmpeg
 
 Before attempting to build this custom PPSSPP port. Once finished:
 
-sudo pkg add ffmpeg
+	sudo pkg add ffmpeg
 
 (Note the use of `pkg add`, to restore our local backup we created, instead of `pkg install` to fetch it from the remote package repository).
 
