@@ -34,31 +34,15 @@ This was tested on amd64 FreeBSD 14.1, when built against the following versions
 
         libzstd.so.1
         libzip.so.5
-        libswscale.so.4
-        libswresample.so.2
         libsnappy.so.1
         libpng16.so.16
         libminiupnpc.so.18
-        libavutil.so.55
-        libavformat.so.57
-        libavcodec.so.57
         libSDL2-2.0.so.0
         libOpenGL.so.0
         libGLEW.so.2
 
-It can be built directly from source utilizing the command `make install clean` or integrated into a synth or poudriere build with some creativity.
+It can be built directly from source utilizing the command `make install clean` or integrated into a synth or poudriere build.
 
-Note: although I patched cmake/Modules/FindFFmpeg.cmake to look for ffmpeg3-3.0.2 in my custom install directory, in a "dirty" build environment (Ports tree, portmaster, portupgrade), there remains a possibility the standard version of multimedia/ffmpeg (currently 6.1.2_4,1), if installed, will be detected and linked against during the PPSSPP build process. This defeats the purpose of this custom port. As of commit 55a512f on 18 October 2024, this should no longer happen--PPSSPP should find my custom ffmpeg3-3.0.2 libraries and header files regardless of whether ffmpeg-6.x is installed and this is a "dirty" build. However, if for whatever reason PPSSPP builds against the "bad" ffmpeg, you'll know right away because the library versions of libavutil, libavformat, etc. will be higher than those listed above.
+As of commit aeb9b2f (29 October 2024), this PPSSPP port expects ffmpeg3 to be built with static libs, which it will bundle into the final PPSSPP binary. What this means for end-users is no external dependency of ffmpeg3--it's now a build dependency only. After building emulators/ppsspp, multimedia/ffmpeg3 can be safely deleted. Even better, package management systems like poudriere or synth that build packages in a clean environment will not install ffmpeg3 onto your system at all--they'll build it as part of the ppsspp build process, then install only the ppsspp package.
 
-A quick-and-dirty workaround if this happens is:
-
-	sudo pkg create ffmpeg
-	sudo pkg delete -f ffmpeg
-
-Before attempting to build this custom PPSSPP port. Once finished:
-
-	sudo pkg add ffmpeg
-
-(Note the use of `pkg add`, to restore our local backup we created, instead of `pkg install` to fetch it from the remote package repository).
-
-The above workaround is unnecessary if building PPSSPP in a "clean" build environment such as provided when using synth or poudriere to build custom packages, or in a jail for that matter. As of commit 55a512f on 18 October 2024, it should be unnecessary in a "dirty" build environment as well. Nevertheless, keeping these instructions just in case.
+If accepted into the FreeBSD Ports tree, this'll mean pkg users will never have to install ffmpeg3 at all--they can just fetch and install the latest ppsspp package which will have bundled_ffmpeg underneath the hood.
