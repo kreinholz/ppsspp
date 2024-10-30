@@ -19,10 +19,11 @@ NOT_FOR_ARCHS=	mips mips64 powerpc powerpc64 powerpcspe
 NOT_FOR_ARCHS_REASON=	only little-endian is supported, see \
 		https://github.com/hrydgard/ppsspp/issues/8823
 
+BUILD_DEPENDS=	/usr/local/ffmpeg3/lib/libavcodec.a:multimedia/ffmpeg3
+
 LIB_DEPENDS=	libzip.so:archivers/libzip \
 		libsnappy.so:archivers/snappy \
 		libzstd.so:archivers/zstd \
-		libavcodec.so.57:multimedia/ffmpeg3 \
 		libminiupnpc.so:net/miniupnpc
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
@@ -40,7 +41,7 @@ GH_TUPLE?=	hrydgard:glslang:8.13.3743-948-gb34f619e:glslang/ext/glslang \
 		Tencent:rapidjson:v1.1.0-415-g73063f50:rapidjson/ext/rapidjson
 EXCLUDE=	libzip zlib
 USE_GL=		glew opengl
-CMAKE_ON=	${FFMPEG LIBZIP MINIUPNPC SNAPPY ZSTD:L:S/^/USE_SYSTEM_/} USE_VULKAN_DISPLAY_KHR
+CMAKE_ON=	${LIBZIP MINIUPNPC SNAPPY ZSTD:L:S/^/USE_SYSTEM_/} USE_VULKAN_DISPLAY_KHR
 CMAKE_OFF=	USE_DISCORD
 LDFLAGS+=	-Wl,--as-needed # ICE/SM/X11/Xext, Qt5Network
 CONFLICTS_INSTALL=	${PORTNAME}-*
