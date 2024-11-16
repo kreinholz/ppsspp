@@ -1,7 +1,6 @@
 PORTNAME=	ppsspp
 DISTVERSIONPREFIX=	v
-DISTVERSION?=	1.17.1
-PORTREVISION?=	2
+DISTVERSION?=	1.18.1
 CATEGORIES=	emulators
 # XXX Get from Debian once #697821 lands
 MASTER_SITES=	https://bazaar.launchpad.net/~sergio-br2/${PORTNAME}/debian-sdl/download/5/${PORTNAME}.1-20140802045408-dd26dik367ztj5xg-8/:manpage
@@ -24,7 +23,7 @@ BUILD_DEPENDS=	/usr/local/ffmpeg3/lib/libavcodec.a:multimedia/ffmpeg3
 LIB_DEPENDS=	libzip.so:archivers/libzip \
 		libsnappy.so:archivers/snappy \
 		libzstd.so:archivers/zstd \
-		libminiupnpc.so:net/miniupnpc
+		libopenxr_loader.so:graphics/openxr
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
 USES=		cmake compiler:c++11-lib gl localbase:ldflags pkgconfig
@@ -37,11 +36,12 @@ GH_TUPLE?=	hrydgard:glslang:8.13.3743-948-gb34f619e:glslang/ext/glslang \
 		KhronosGroup:SPIRV-Cross:sdk-1.3.239.0:SPIRV/ext/SPIRV-Cross \
 		Kingcom:armips:v0.11.0-195-ga8d71f0:armips/ext/armips \
 		Kingcom:filesystem:v1.3.2-12-g3f1c185:filesystem/ext/armips/ext/filesystem \
-		RetroAchievements:rcheevos:v11.0.0-26-ge7989c3:rcheevos/ext/rcheevos \
-		Tencent:rapidjson:v1.1.0-415-g73063f50:rapidjson/ext/rapidjson
+		RetroAchievements:rcheevos:v11.6.0:rcheevos/ext/rcheevos \
+		Tencent:rapidjson:v1.1.0-415-g73063f50:rapidjson/ext/rapidjson \
+		miniupnp:miniupnp:miniupnpd_2_3_7:miniupnp/ext/miniupnp
 EXCLUDE=	libzip zlib
 USE_GL=		glew opengl
-CMAKE_ON=	${LIBZIP MINIUPNPC SNAPPY ZSTD:L:S/^/USE_SYSTEM_/} USE_VULKAN_DISPLAY_KHR
+CMAKE_ON=	${LIBZIP SNAPPY ZSTD:L:S/^/USE_SYSTEM_/} USE_VULKAN_DISPLAY_KHR
 CMAKE_OFF=	USE_DISCORD
 LDFLAGS+=	-Wl,--as-needed # ICE/SM/X11/Xext, Qt5Network
 CONFLICTS_INSTALL=	${PORTNAME}-*
