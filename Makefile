@@ -30,15 +30,15 @@ USES=		cmake compiler:c++11-lib gl localbase:ldflags pkgconfig
 USE_GITHUB=	yes
 GH_ACCOUNT=	hrydgard
 GH_TUPLE?=	hrydgard:glslang:8.13.3743-948-gb34f619e:glslang/ext/glslang \
-		google:cpu_features:v0.8.0-27-gfd4ffc1:cpu_features/ext/cpu_features \
+		google:cpu_features:v0.9.0-gfd4ffc1:cpu_features/ext/cpu_features \
 		rtissera:libchdr:26d27ca:libchdr/ext/libchdr \
-		unknownbrackets:ppsspp-debugger:9776332:debugger/assets/debugger \
+		unknownbrackets:ppsspp-debugger:d358a87:debugger/assets/debugger \
 		KhronosGroup:SPIRV-Cross:sdk-1.3.239.0:SPIRV/ext/SPIRV-Cross \
 		Kingcom:armips:v0.11.0-195-ga8d71f0:armips/ext/armips \
 		Kingcom:filesystem:v1.3.2-12-g3f1c185:filesystem/ext/armips/ext/filesystem \
-		RetroAchievements:rcheevos:v11.6.0:rcheevos/ext/rcheevos \
+		RetroAchievements:rcheevos:v11.6.0-g32917bd:rcheevos/ext/rcheevos \
 		Tencent:rapidjson:v1.1.0-415-g73063f50:rapidjson/ext/rapidjson \
-		miniupnp:miniupnp:miniupnpd_2_3_7:miniupnp/ext/miniupnp
+		miniupnp:miniupnp:miniupnpd_2_3_7-g27d13ca:miniupnp/ext/miniupnp
 EXCLUDE=	libzip zlib
 USE_GL=		glew opengl
 CMAKE_ON=	${LIBZIP SNAPPY ZSTD:L:S/^/USE_SYSTEM_/} USE_VULKAN_DISPLAY_KHR
