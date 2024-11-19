@@ -30,7 +30,7 @@ USES=		cmake compiler:c++11-lib gl localbase:ldflags pkgconfig
 USE_GITHUB=	yes
 GH_ACCOUNT=	hrydgard
 GH_TUPLE?=	hrydgard:glslang:8.13.3743-948-gb34f619e:glslang/ext/glslang \
-		google:cpu_features:v0.9.0-gfd4ffc1:cpu_features/ext/cpu_features \
+		google:cpu_features:v0.8.0-27-gfd4ffc1:cpu_features/ext/cpu_features \
 		rtissera:libchdr:26d27ca:libchdr/ext/libchdr \
 		unknownbrackets:ppsspp-debugger:d358a87:debugger/assets/debugger \
 		KhronosGroup:SPIRV-Cross:sdk-1.3.239.0:SPIRV/ext/SPIRV-Cross \
