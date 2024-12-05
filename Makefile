@@ -7,7 +7,7 @@ MASTER_SITES=	https://bazaar.launchpad.net/~sergio-br2/${PORTNAME}/debian-sdl/do
 DISTFILES=	${PORTNAME}.1:manpage
 EXTRACT_ONLY=	${DISTFILES:N*\:manpage:C/:.*//}
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	kreinholz@gmail.com
 COMMENT=	PSP emulator in C++ with dynarec JIT for x86, ARM, MIPS
 WWW=		https://www.ppsspp.org/
 
