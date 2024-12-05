@@ -18,7 +18,7 @@ NOT_FOR_ARCHS=	mips mips64 powerpc powerpc64 powerpcspe
 NOT_FOR_ARCHS_REASON=	only little-endian is supported, see \
 		https://github.com/hrydgard/ppsspp/issues/8823
 
-BUILD_DEPENDS=	/usr/local/ffmpeg3/lib/libavcodec.a:multimedia/ffmpeg3
+BUILD_DEPENDS=	${LOCALBASE}/ffmpeg3/lib/libavcodec.a:multimedia/ffmpeg3
 
 LIB_DEPENDS=	libzip.so:archivers/libzip \
 		libsnappy.so:archivers/snappy \
@@ -85,6 +85,8 @@ post-patch:
 	@${REINPLACE_CMD} -e 's/Linux/${OPSYS}/' ${WRKSRC}/assets/gamecontrollerdb.txt
 	@${REINPLACE_CMD} -e 's,/usr/share,${PREFIX}/share,' ${WRKSRC}/UI/NativeApp.cpp
 	@${REINPLACE_CMD} -e 's/"unknown"/"${DISTVERSIONFULL}"/' ${WRKSRC}/git-version.cmake
+	@${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|g' \
+		${PATCH_WRKSRC}/cmake/Modules/FindFFmpeg.cmake
 
 do-install-LIBRETRO-on:
 	${MKDIR} ${STAGEDIR}${PREFIX}/${LIBRETRO_PLIST_FILES:H}
