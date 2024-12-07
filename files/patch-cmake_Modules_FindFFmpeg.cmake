@@ -22,7 +22,7 @@
 -      /usr/include/lib${LIBNAME}
 -      /usr/include/ffmpeg/lib${LIBNAME}
 +    list(SET INCLUDE_PATHS
-+      %%LOCALBASSE%%/ffmpeg3/include/ffmpeg
++      %%LOCALBASE%%/ffmpeg3/include/ffmpeg
 +      %%LOCALBASE%%/ffmpeg3/include/lib${LIBNAME}
      )
  
