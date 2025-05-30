@@ -38,7 +38,7 @@ GH_TUPLE?=	hrydgard:glslang:8.13.3743-948-gb34f619e:glslang/ext/glslang \
 		Kingcom:armips:v0.11.0-195-ga8d71f0:armips/ext/armips \
 		Kingcom:filesystem:v1.3.2-12-g3f1c185:filesystem/ext/armips/ext/filesystem \
 		RetroAchievements:rcheevos:v11.6.0-g32917bd:rcheevos/ext/rcheevos \
-		Tencent:rapidjson:v1.1.0-415-g73063f50:rapidjson/ext/rapidjson \
+		Tencent:rapidjson:v1.1.0-415-g73063f5:rapidjson/ext/rapidjson \
 		miniupnp:miniupnp:miniupnpd_2_3_7-g27d13ca:miniupnp/ext/miniupnp
 EXCLUDE=	libzip zlib
 USE_GL=		glew opengl
