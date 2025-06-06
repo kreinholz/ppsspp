@@ -1,7 +1,6 @@
 PORTNAME=	ppsspp
 DISTVERSIONPREFIX=	v
-DISTVERSION?=	1.18.1
-PORTREVISION?=	2
+DISTVERSION?=	1.19
 CATEGORIES=	emulators
 # XXX Get from Debian once #697821 lands
 MASTER_SITES=	https://bazaar.launchpad.net/~sergio-br2/${PORTNAME}/debian-sdl/download/5/${PORTNAME}.1-20140802045408-dd26dik367ztj5xg-8/:manpage
@@ -32,15 +31,16 @@ USES=		cmake compiler:c++11-lib gl localbase:ldflags pkgconfig \
 		desktop-file-utils
 USE_GITHUB=	yes
 GH_ACCOUNT=	hrydgard
-GH_TUPLE?=	hrydgard:glslang:8.13.3743-948-gb34f619e:glslang/ext/glslang \
+GH_TUPLE?=	hrydgard:glslang:8.13.3743-948-g50e0708:glslang/ext/glslang \
 		google:cpu_features:v0.8.0-27-gfd4ffc1:cpu_features/ext/cpu_features \
 		rtissera:libchdr:26d27ca:libchdr/ext/libchdr \
 		unknownbrackets:ppsspp-debugger:d358a87:debugger/assets/debugger \
 		KhronosGroup:SPIRV-Cross:sdk-1.3.239.0:SPIRV/ext/SPIRV-Cross \
 		Kingcom:armips:v0.11.0-195-ga8d71f0:armips/ext/armips \
 		Kingcom:filesystem:v1.3.2-12-g3f1c185:filesystem/ext/armips/ext/filesystem \
-		RetroAchievements:rcheevos:v11.6.0-g32917bd:rcheevos/ext/rcheevos \
-		Tencent:rapidjson:v1.1.0-415-g73063f5:rapidjson/ext/rapidjson
+		RetroAchievements:rcheevos:v11.6.0-gef0e22b:rcheevos/ext/rcheevos \
+		Tencent:rapidjson:v1.1.0-415-g73063f5:rapidjson/ext/rapidjson \
+		hrydgard:ppsspp-lua:7648485:lua/ext/lua
 EXCLUDE=	libpng17 libzip zlib
 USE_GL=		glew opengl
 CMAKE_ON=	${LIBZIP MINIUPNPC SNAPPY ZSTD:L:S/^/USE_SYSTEM_/} USE_VULKAN_DISPLAY_KHR
