@@ -1,6 +1,6 @@
 PORTNAME=	ppsspp
 DISTVERSIONPREFIX=	v
-DISTVERSION?=	1.19.3
+DISTVERSION?=	1.20.1
 CATEGORIES=	emulators
 
 MAINTAINER=	kreinholz@gmail.com
@@ -35,11 +35,15 @@ GH_TUPLE?=	Kingcom:armips:v0.11.0-195-ga8d71f0:armips/ext/armips \
 		Tencent:rapidjson:73063f5002612c6bf64fe24f851cd5cc0d83eef9:rapidjson/ext/rapidjson \
 		unknownbrackets:ppsspp-debugger:9776332f720c854ef26f325a0cf9e32c02115a9c:ppssppdebugger/assets/debugger \
 		google:cpu_features:v0.4.1-211-gfd4ffc1:cpu_features/ext/cpu_features \
-		RetroAchievements:rcheevos:v11.6.0-61-gef0e22b:rcheevos/ext/rcheevos \
-		rtissera:libchdr:26d27ca:libchdr/ext/libchdr \
+		RetroAchievements:rcheevos:v12.3.0:rcheevos/ext/rcheevos \
+		erkkah:naett:5f695cfa9fcbf30668a4d3ac4b4abf1cd89a1302:naett/ext/naett \
+		rtissera:libchdr:8bba7745d758627258b315997a860039244cedaf:libchdr/ext/libchdr \
 		hrydgard:ppsspp-lua:7648485f14e8e5ee45e8e39b1eb4d3206dbd405a:ppsspplua/ext/lua \
-		Kingcom:filesystem:v1.1.2-171-g3f1c185:filesystem/ext/armips/ext/filesystem
-
+		hrydgard:freetype:063ed27f481f0bcd3962fd468e1546739d7d285a:freetype/ext/freetype \
+		hrydgard:nanosvg:478dbb8f7ed11c3d9b20b3986a8ee2283f483ef7:nanosvg/ext/nanosvg \
+		Kethen:aemu_postoffice:f5ae0ce8cac89cfc592047925f2064a84536eeb4:aemu_postoffice/ext/aemu_postoffice \
+		Kingcom:filesystem:v1.3.2-12-g3f1c185:filesystem/ext/armips/ext/filesystem \
+		nyorain:dlg:v0.2.2-50-g395ccad:dlg/ext/freetype/subprojects/dlg
 EXCLUDE=	libzip zlib
 USE_GL=		glew opengl
 CMAKE_ON=	${LIBZIP MINIUPNPC SNAPPY ZSTD:L:S/^/USE_SYSTEM_/} USE_VULKAN_DISPLAY_KHR
